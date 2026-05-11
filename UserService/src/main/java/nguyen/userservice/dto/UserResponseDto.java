@@ -9,6 +9,6 @@ import lombok.*;
 @Setter
 @Builder
 public class UserResponseDto {
-    private String username;
-    private String loginName;
+    private String userName;
+    private String displayName;
 }
