@@ -1,4 +1,4 @@
-package nguyen.userservice.util;
+package nguyen.userservice.common.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

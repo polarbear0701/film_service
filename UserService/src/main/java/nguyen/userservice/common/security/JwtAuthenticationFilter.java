@@ -1,4 +1,4 @@
-package nguyen.userservice.security;
+package nguyen.userservice.common.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import nguyen.userservice.service.UserService;
-import nguyen.userservice.util.JwtUtil;
+import nguyen.userservice.common.util.JwtUtil;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

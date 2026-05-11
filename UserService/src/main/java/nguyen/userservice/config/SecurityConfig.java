@@ -1,7 +1,7 @@
 package nguyen.userservice.config;
 
 import lombok.AllArgsConstructor;
-import nguyen.userservice.security.JwtAuthenticationFilter;
+import nguyen.userservice.common.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

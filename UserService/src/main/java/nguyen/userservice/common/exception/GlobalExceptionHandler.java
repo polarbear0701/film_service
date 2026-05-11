@@ -1,4 +1,4 @@
-package nguyen.userservice.exception;
+package nguyen.userservice.common.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import nguyen.userservice.common.response.GenericResponse;

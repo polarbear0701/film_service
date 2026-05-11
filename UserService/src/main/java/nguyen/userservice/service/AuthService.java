@@ -8,7 +8,7 @@ import nguyen.userservice.dto.UserRegisterRequestDto;
 import nguyen.userservice.dto.UserResponseDto;
 import nguyen.userservice.model.Users;
 import nguyen.userservice.repository.UserRepository;
-import nguyen.userservice.util.JwtUtil;
+import nguyen.userservice.common.util.JwtUtil;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
