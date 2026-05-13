@@ -1,7 +1,9 @@
 package nguyen.userservice.config;
 
-import lombok.AllArgsConstructor;
 import nguyen.userservice.common.security.JwtAuthenticationFilter;
+import nguyen.userservice.common.util.JwtUtil;
+import nguyen.userservice.service.UserService;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,12 +18,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-@AllArgsConstructor
 public class SecurityConfig {
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
-    public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) {
+    public JwtAuthenticationFilter jwtAuthenticationFilter(JwtUtil jwtUtil, ObjectProvider<UserService> userService) {
+        return new JwtAuthenticationFilter(jwtUtil, userService.getIfAvailable());
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
         httpSecurity
                 .csrf(CsrfConfigurer::disable)
                 .cors(CorsConfigurer::disable)
@@ -33,7 +38,6 @@ public class SecurityConfig {
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
-
     }
 
     @Bean
